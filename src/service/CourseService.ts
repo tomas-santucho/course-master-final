@@ -17,7 +17,7 @@ export interface CourseDetails {
 
 export async function getCourses(): Promise<CourseDetails[]> {
     try {
-        const response = await fetch(import.meta.env.VITE_HOST_REM+`/api/courses`, {
+        const response = await fetch(`https://course-master.fly.dev/api/courses`, {
             headers: {
                 "Authorization": `Bearer ${localStorage.getItem("jwt-token")}`
             }
@@ -37,7 +37,7 @@ export async function getCourses(): Promise<CourseDetails[]> {
 
 export async function getUserCourses(): Promise<number[]> {
     try {
-        const response = await fetch(import.meta.env.VITE_HOST_REM+`/api/user/courses`, {
+        const response = await fetch(`https://course-master.fly.dev/api/user/courses`, {
             headers: {
                 "Authorization": `Bearer ${localStorage.getItem("jwt-token")}`
             }
@@ -57,7 +57,7 @@ export async function getUserCourses(): Promise<number[]> {
 
 export async function addCourse(courseId: number, userId: string): Promise<boolean> {
     try {
-        const response = await fetch(import.meta.env.VITE_HOST_REM+`/api/courses/${courseId}/users`, {
+        const response = await fetch(`https://course-master.fly.dev/api/courses/${courseId}/users`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -75,7 +75,7 @@ export async function addCourse(courseId: number, userId: string): Promise<boole
 
 export async function createCourse(courseRequest: CourseRequest): Promise<boolean> {
     try {
-        const response = await fetch(import.meta.env.VITE_HOST_REM+`/api/courses`, {
+        const response = await fetch(`https://course-master.fly.dev/api/courses`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -98,7 +98,7 @@ export async function createCourse(courseRequest: CourseRequest): Promise<boolea
 
 export async function removeUserFromCourse(courseId: string, userId: string): Promise<boolean> {
     try {
-        const response = await fetch(import.meta.env.VITE_HOST_REM+`/api/courses/${courseId}/users/${userId}`, {
+        const response = await fetch(`https://course-master.fly.dev/api/courses/${courseId}/users/${userId}`, {
             method: "DELETE",
             headers: {
                 "Authorization": `Bearer ${localStorage.getItem("jwt-token")}`
@@ -114,7 +114,7 @@ export async function removeUserFromCourse(courseId: string, userId: string): Pr
 
 export async function getCourseDetails(courseId: string): Promise<CourseDetails | null> {
     try {
-        const response = await fetch(import.meta.env.VITE_HOST_REM+`/api/courses/${courseId}`, {
+        const response = await fetch(`https://course-master.fly.dev/api/courses/${courseId}`, {
             headers: {
                 "Authorization": `Bearer ${localStorage.getItem("jwt-token")}`
             }
@@ -134,7 +134,7 @@ export async function getCourseDetails(courseId: string): Promise<CourseDetails 
 
 export async function updateCourse(courseId: number, course: CourseDetails): Promise<boolean> {
     try {
-        const response = await fetch(import.meta.env.VITE_HOST_REM+`/api/courses/${courseId}`, {
+        const response = await fetch(`https://course-master.fly.dev/api/courses/${courseId}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
@@ -154,7 +154,7 @@ export async function updateCourse(courseId: number, course: CourseDetails): Pro
 
 export async function deleteCourseById(courseId: string): Promise<boolean> {
     try {
-        const response = await fetch(import.meta.env.VITE_HOST_REM+`/api/courses/${courseId}`, {
+        const response = await fetch(`https://course-master.fly.dev/api/courses/${courseId}`, {
             method: "DELETE",
             headers: {
                 "Authorization": `Bearer ${localStorage.getItem("jwt-token")}`

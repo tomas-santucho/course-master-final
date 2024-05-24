@@ -12,8 +12,8 @@ export interface AuthRequest {
 }
 
 export async function login(authRequest: AuthRequest): Promise<boolean> {
-    try {
-        const response = await fetch(import.meta.env.VITE_HOST_REM+`/api/auth/login`, {
+    try {import.meta.env.VITE_HOST_REM
+        const response = await fetch(`https://course-master.fly.dev/api/auth/login`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -44,7 +44,7 @@ export async function login(authRequest: AuthRequest): Promise<boolean> {
 
 export async function register(registerRequest: RegisterRequest): Promise<boolean> {
     try {
-        const response = await fetch(import.meta.env.VITE_HOST_REM+`/api/auth/register`, {
+        const response = await fetch(`https://course-master.fly.dev/api/auth/register`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
